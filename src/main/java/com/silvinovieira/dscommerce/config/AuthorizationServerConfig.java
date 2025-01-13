@@ -1,8 +1,8 @@
 package com.silvinovieira.dscommerce.config;
 
-import com.devsuperior.demo.config.customgrant.CustomPasswordAuthenticationConverter;
-import com.devsuperior.demo.config.customgrant.CustomPasswordAuthenticationProvider;
-import com.devsuperior.demo.config.customgrant.CustomUserAuthorities;
+import com.silvinovieira.dscommerce.config.customgrant.CustomPasswordAuthenticationConverter;
+import com.silvinovieira.dscommerce.config.customgrant.CustomPasswordAuthenticationProvider;
+import com.silvinovieira.dscommerce.config.customgrant.CustomUserAuthorities;
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.jwk.source.JWKSource;
