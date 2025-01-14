@@ -1,21 +1,18 @@
 package com.silvinovieira.dscommerce.services;
 
 import com.silvinovieira.dscommerce.dto.ProductDTO;
+import com.silvinovieira.dscommerce.dto.ProductMinDTO;
 import com.silvinovieira.dscommerce.entities.Product;
 import com.silvinovieira.dscommerce.repositories.ProductRepository;
 import com.silvinovieira.dscommerce.services.exceptions.DatabaseException;
 import com.silvinovieira.dscommerce.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -30,9 +27,9 @@ public class ProductService {
     }
 
     @Transactional(readOnly = true)
-    public Page<ProductDTO> findAll(String name, Pageable pageable) {
+    public Page<ProductMinDTO> findAll(String name, Pageable pageable) {
         Page<Product> products = repository.searchByName(name, pageable);
-        return products.map(x -> new ProductDTO(x));
+        return products.map(x -> new ProductMinDTO(x));
     }
 
     @Transactional
